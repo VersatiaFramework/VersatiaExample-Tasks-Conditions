@@ -1,0 +1,9 @@
+name: VersatiaExample-Tasks-Conditions
+version: '${version}'
+main: com.github.marcoral.versatia.example.conditions.ConditionsPlugin
+api-version: '1.21'
+author: Versatia
+description: Conditions rechecked on events, for a teleport countdown and a beacon lit while players are online.
+# Kotlin and kotlinx.coroutines classes come from VersatiaCore's class loader; do not list kotlin-stdlib or kotlinx-coroutines here
+depend:
+  - VersatiaCore
