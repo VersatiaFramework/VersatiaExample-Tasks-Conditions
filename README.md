@@ -27,6 +27,9 @@ the hotbar, counting down to the teleport.
   blocks from where you started; `runOnceWhile` cancelled the countdown and returned false.
 - Leave the server mid-countdown: the request ends without a message, and the listeners of its
   condition go with its coroutine.
+- Get teleported during the countdown, for example with `/tp @s ~10 ~ ~`: `Teleport cancelled: you
+  moved`. `PlayerTeleportEvent` has its own handler list, so `recheckOn<PlayerMoveEvent>` alone
+  would not see it; the condition rechecks on both.
 - Right-click again during a countdown: it starts over from 5, because the new request replaced the
   old one in `KeyedJobs`.
 - Leave the server empty and rejoin: `Beacon off`, then `Beacon on`. `whenever` cancelled the

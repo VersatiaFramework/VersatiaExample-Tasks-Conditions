@@ -16,11 +16,12 @@ import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.event.player.PlayerQuitEvent
+import org.bukkit.event.player.PlayerTeleportEvent
 
 /**
  * Right-clicking with a compass teleports to the world spawn after five seconds of standing
- * still. The condition is checked again only when the player moves or quits, never by polling,
- * and its listeners go when the request ends.
+ * still. The condition is checked again only when the player moves, is teleported or quits, never
+ * by polling, and its listeners go when the request ends.
  */
 @LocalBean
 class Teleports(scope: PluginScope) : Listener {
@@ -32,7 +33,11 @@ class Teleports(scope: PluginScope) : Listener {
         val player = event.player
         val start = player.location
         pending.launch(player.uniqueId) {
-            val stays = condition(recheckOn<PlayerMoveEvent>(player), recheckOn<PlayerQuitEvent>(player)) {
+            val stays = condition(
+                recheckOn<PlayerMoveEvent>(player),
+                recheckOn<PlayerTeleportEvent>(player),
+                recheckOn<PlayerQuitEvent>(player),
+            ) {
                 player.isOnline && player.location.isWithin(1.5, start)
             }
             val stayed = runOnceWhile(stays) {
