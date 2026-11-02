@@ -10,6 +10,7 @@ import com.github.marcoral.versatia.task.runOnceWhile
 import com.github.marcoral.versatia.util.world.isWithin
 import java.util.UUID
 import net.kyori.adventure.text.Component.text
+import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.Material
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -42,13 +43,13 @@ class Teleports(scope: PluginScope) : Listener {
             }
             val stayed = runOnceWhile(stays) {
                 for (left in 5 downTo 1) {
-                    player.sendActionBar(text("Teleporting in $left s, stand still"))
+                    player.sendActionBar(text("Teleporting in ").append(text("$left s", NamedTextColor.AQUA)).append(text(", stand still")))
                     delayTicks(20)
                 }
             }
             when {
                 stayed -> player.teleport(player.world.spawnLocation)
-                player.isOnline -> player.sendMessage(text("Teleport cancelled: you moved"))
+                player.isOnline -> player.sendMessage(text("Teleport cancelled: you moved", NamedTextColor.RED))
             }
         }
     }
