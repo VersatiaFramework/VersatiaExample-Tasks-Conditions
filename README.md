@@ -2,9 +2,9 @@
 
 A `Condition` holds the last result of a check, evaluated again only when one of its events fires, never by polling: here a teleport that waits for the player to stand still for five seconds, and a background task that runs only while someone is online.
 
-Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Conditions](https://versatiaframework.github.io/VersatiaDocs/docs/tasks#conditions).
+Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Conditions](https://versatia.dev/docs/tasks#conditions).
 
-**Start with** [`Teleports.kt`](src/main/kotlin/com/github/marcoral/versatia/example/conditions/Teleports.kt), then [`SpawnBeaconTask.kt`](src/main/kotlin/com/github/marcoral/versatia/example/conditions/SpawnBeaconTask.kt).
+**Start with** [`Teleports.kt`](src/main/kotlin/dev/versatia/example/conditions/Teleports.kt), then [`SpawnBeaconTask.kt`](src/main/kotlin/dev/versatia/example/conditions/SpawnBeaconTask.kt).
 
 ## What the log shows
 
@@ -41,7 +41,7 @@ the hotbar, counting down to the teleport.
 
 Requires JDK 21 and VersatiaAPI and
 VersatiaCatalog, which supplies every version, in your local Maven repository (`./gradlew publishToMavenLocal` in each checkout; see
-[Building the framework](https://versatiaframework.github.io/VersatiaDocs/docs/contributing/building));
+[Building the framework](https://versatia.dev/docs/contributing/building));
 running it requires a Paper 1.21.4 server with VersatiaCore installed.
 
 ```bash
@@ -53,6 +53,6 @@ To have the JAR copied to your server after every build, copy `local.properties.
 `build/generated/ksp/main/kotlin`; open it to see exactly what the runtime executes.
 
 The Versatia version is `versatiaVersion` in `gradle.properties`; `settings.gradle.kts` imports
-the matching [VersatiaCatalog](https://versatiaframework.github.io/VersatiaDocs/docs/getting-started/installation#versatia-catalog),
+the matching [VersatiaCatalog](https://versatia.dev/docs/getting-started/installation#versatia-catalog),
 so the build script writes `libs.versatia.api` and `alias(libs.plugins.ksp)` instead of version
 numbers.

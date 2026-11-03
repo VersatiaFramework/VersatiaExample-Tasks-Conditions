@@ -1,13 +1,13 @@
-package com.github.marcoral.versatia.example.conditions
+package dev.versatia.example.conditions
 
-import com.github.marcoral.versatia.VersatiaEngine
-import com.github.marcoral.versatia.onlinePlayers
-import com.github.marcoral.versatia.task.BackgroundTask
-import com.github.marcoral.versatia.task.condition
-import com.github.marcoral.versatia.task.everyTicks
-import com.github.marcoral.versatia.task.recheckOn
-import com.github.marcoral.versatia.task.whenever
-import com.github.marcoral.versatia.util.world.spawnParticle
+import dev.versatia.VersatiaEngine
+import dev.versatia.onlinePlayers
+import dev.versatia.task.BackgroundTask
+import dev.versatia.task.condition
+import dev.versatia.task.everyTicks
+import dev.versatia.task.recheckOn
+import dev.versatia.task.whenever
+import dev.versatia.util.world.spawnParticle
 import java.util.logging.Logger
 import org.bukkit.Bukkit
 import org.bukkit.Particle

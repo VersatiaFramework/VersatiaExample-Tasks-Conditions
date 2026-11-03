@@ -17,7 +17,7 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
-group = "com.github.marcoral.versatia"
+group = "dev.versatia"
 version = "0.0.1"
 
 // VersatiaAPI brings the Paper API and Kotlin, for compilation only: on the server these classes come from
@@ -59,7 +59,7 @@ val checkPluginYml = tasks.register("checkPluginYml") {
     doLast {
         val paperFile = paperPluginYml.asFile
         if (paperFile.exists())
-            throw GradleException("Versatia plugins use plugin.yml; remove paper-plugin.yml ($paperFile). Paper prefers it to plugin.yml and loads the JAR as a Paper plugin, whose isolated class loader does not share VersatiaCore's Kotlin and VersatiaAPI classes the way depend: does. See https://versatiaframework.github.io/VersatiaDocs/docs/getting-started/installation#pluginyml")
+            throw GradleException("Versatia plugins use plugin.yml; remove paper-plugin.yml ($paperFile). Paper prefers it to plugin.yml and loads the JAR as a Paper plugin, whose isolated class loader does not share VersatiaCore's Kotlin and VersatiaAPI classes the way depend: does. See https://versatia.dev/docs/getting-started/installation#pluginyml")
         val file = pluginYml.get().asFile
         if (!file.exists()) throw GradleException("$file is missing; add src/main/resources/plugin.yml")
         val root = file.reader().use { Yaml().load<Any?>(it) } as? Map<*, *>

@@ -1,13 +1,13 @@
-package com.github.marcoral.versatia.example.conditions
+package dev.versatia.example.conditions
 
-import com.github.marcoral.versatia.di.LocalBean
-import com.github.marcoral.versatia.task.PluginScope
-import com.github.marcoral.versatia.task.condition
-import com.github.marcoral.versatia.task.delayTicks
-import com.github.marcoral.versatia.task.keyedJobs
-import com.github.marcoral.versatia.task.recheckOn
-import com.github.marcoral.versatia.task.runOnceWhile
-import com.github.marcoral.versatia.util.world.isWithin
+import dev.versatia.di.LocalBean
+import dev.versatia.task.PluginScope
+import dev.versatia.task.condition
+import dev.versatia.task.delayTicks
+import dev.versatia.task.keyedJobs
+import dev.versatia.task.recheckOn
+import dev.versatia.task.runOnceWhile
+import dev.versatia.util.world.isWithin
 import java.util.UUID
 import net.kyori.adventure.text.Component.text
 import net.kyori.adventure.text.format.NamedTextColor
