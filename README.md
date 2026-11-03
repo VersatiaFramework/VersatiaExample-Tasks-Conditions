@@ -2,7 +2,7 @@
 
 A `Condition` holds the last result of a check, evaluated again only when one of its events fires, never by polling: here a teleport that waits for the player to stand still for five seconds, and a background task that runs only while someone is online.
 
-Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Conditions](https://versatia.dev/docs/tasks#conditions).
+Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Conditions](https://versatia.dev/docs/tasks/conditions).
 
 **Start with** [`Teleports.kt`](src/main/kotlin/dev/versatia/example/conditions/Teleports.kt), then [`SpawnBeaconTask.kt`](src/main/kotlin/dev/versatia/example/conditions/SpawnBeaconTask.kt).
 
