@@ -7,10 +7,10 @@ import dev.versatia.task.delayTicks
 import dev.versatia.task.keyedJobs
 import dev.versatia.task.recheckOn
 import dev.versatia.task.runOnceWhile
+import dev.versatia.text.Text
+import dev.versatia.text.arg
 import dev.versatia.util.world.isWithin
 import java.util.UUID
-import net.kyori.adventure.text.Component.text
-import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.Material
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -25,7 +25,7 @@ import org.bukkit.event.player.PlayerTeleportEvent
  * by polling, and its listeners go when the request ends.
  */
 @LocalBean
-class Teleports(scope: PluginScope) : Listener {
+class Teleports(scope: PluginScope, private val text: Text) : Listener {
     private val pending = scope.keyedJobs<UUID>()
 
     @EventHandler
@@ -43,13 +43,13 @@ class Teleports(scope: PluginScope) : Listener {
             }
             val stayed = runOnceWhile(stays) {
                 for (left in 5 downTo 1) {
-                    player.sendActionBar(text("Teleporting in ").append(text("$left s", NamedTextColor.AQUA)).append(text(", stand still")))
+                    player.sendActionBar(text.parse("<neutral>Teleporting in {left} s, stand still", arg("left", left)))
                     delayTicks(20)
                 }
             }
             when {
                 stayed -> player.teleport(player.world.spawnLocation)
-                player.isOnline -> player.sendMessage(text("Teleport cancelled: you moved", NamedTextColor.RED))
+                player.isOnline -> player.sendMessage(text.parse("<negative>Teleport cancelled: you moved"))
             }
         }
     }
